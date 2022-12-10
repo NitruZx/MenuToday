@@ -37,40 +37,25 @@ def find_menu(menu_c, num_cpm):
 "เย็นตาโฟ", 290),("บะหมี่น้ำต้มยำหมู", 300),("บะหมี่น้ำเกี๊ยวหมูแดง", 305),("ก๋วยเตี๋ยวต้มยำ", 320, \
 "สุกี้น้ำไก่", 345),("ราดหน้าเส้นใหญ่หมู", 405),("มักกะโรนีผัดกุ้ง", 420),("ก๋วยเตี๋ยวคั่วไก่", 435, \
 "ราดหน้าบะหมี่กรอบ", 515),("เส้นใหญ่ผัดซีอิ๊วใส่ไข่", 520),("ขนมจีนแกงเขียวหวานไก่", 594)]
-    menu_sweet = [("ขนมครก", 92),("ไอศกรีม", 120),("ขนมบ้าบิ่น", 130),("โรตี", 192, \
-"บราวนี่", 340),("เค้กกล้วยหอม", 370)]
-    menu_decrease = [("ยำมาม่า", 105),("ยำไส้กรอก", 110),("ยำวุ้นเส้น", 120),("ยำขนมจีน", 220, \
-"ก๋วยเตี๋ยวเรือ", 180),("เส้นหมี่ลูกชิ้นน้ำใส", 225),("ข้าวต้มทรงเครื่อง", 230),("โจ๊กใส่ไข่", 250, \
-"สุกี้แห้งทะเล", 280),("เย็นตาโฟ", 290),("บะหมี่น้ำต้มยำหมู", 300),("บะหมี่น้ำเกี๊ยวหมูแดง", 305, \
-"ก๋วยเตี๋ยวต้มยำ", 320),("ข้าวต้มปลา", 325)]
-    menu_increase = [("ราดหน้าบะหมี่กรอบ", 515),("เส้นใหญ่ผัดซีอิ๊วใส่ไข่", 520, \
-"ข้าวหมูทอดกระเทียม", 525),("ข้าวหมกไก่", 534),("ข้าวผัดกะเพรากุ้ง", 540),("ข้าวหมูแดง", 541, \
-"ข้าวผัดหมูใส่ไข่", 557),("ข้าวมันไก่ต้ม", 596),("ข้าวผัดกะเพราหมู", 580),("ขนมจีนแกงเขียวหวานไก่", 594, \
-"ข้าวกะเพราเนื้อ", 622),("ข้าวผัดกะเพราหมูกรอบ", 650),("ข้าวผัดคะน้าหมูกรอบ", 670, \
-"ข้าวขาหมู", 690),("ข้าวมันไก่ทอด", 695)]
     
-    
-
     if menu_c == "Rice":
         newrice = []
         for i in menu_rice:
             if i[1] <= num_cpm:
                 newrice.append(i)
-     #   return random.choice(list(menu_rice.keys()))
+        return random.choice(list(newrice.keys()))
     elif menu_c == "Sen":
         newsen = []
         for i in menu_noodle:
             if i[1] <= num_cpm:
                 newsen.append(i)
-      #  return random.choice(list(menu_noodle.keys()))
+        return random.choice(list(newsen.keys()))
     elif menu_c == "yum":
         newyum = []
         for i in menu_yum:
             if i[1] <= num_cpm:
                 newyum.append(i)
-       # return random.choice(list(menu_yum.keys()))
-   # elif menu_c == "sweet":
-        #return random.choice(list(menu_sweet.keys()))
+        return random.choice(list(newyum.keys()))
 
 def calpermeal(num_meal, cal_want):
     """cpm"""
@@ -97,6 +82,8 @@ def main():
     cal_want = int(input())
     print("Type of menu u want to eat : ", end= "")
     menu_c = input()
-    print(find_menu)
+    print(find_menu(menu_c, calpermeal(num_meal, cal_want)))
+    
+
     
 main()
