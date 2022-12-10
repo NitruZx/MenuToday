@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="#" method="post">
-  <p>weight:</p>
-  <p><input type="text" name="fweight" /></p>
-  <p><input type="submit" value="calculate" /></p>
+<form action="/" method="POST">
+  Weight(Kg): <input type="text" name="weight" />
+  Height(cm): <input type="text" name="hight" />
+  <input type="submit" value="calculate" />
 </form>
+{%if bmi%}
+<p>Your BMI is {{bmi}}</p>
+{%endif%}
 {% endblock %}
