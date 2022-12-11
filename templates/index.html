@@ -1,12 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="/" method="POST">
-  Weight(Kg): <input type="text" name="weight" />
-  Height(cm): <input type="text" name="hight" />
-  <input type="submit" value="calculate" />
+<form action="" method="POST" id="cal">
+    <div class="container-sm">
+      <p class="h2">Let's Calculories!</p>
+      <br>
+      <div class="form-outline">
+        <input type="text" name="weight" id="weight" class="form-control"  value="{{tmp[0]}}" required/>
+        <label class="form-label" for="typeText">Weight</label>
+      </div>
+      <br>
+      <div class="form-outline">
+        <input type="text" name="height" id="height" class="form-control" value="{{tmp[1]}}" required/>
+        <label class="form-label" for="typeText">Height</label>
+      </div>
+      <br>
+      <div class="form-outline">
+        <input type="text" name="age" id="age" class="form-control" value="{{tmp[2]}}" required/>
+        <label class="form-label" for="typeText">Age</label>
+      </div>
+      <br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sex" value="male" required/>
+        <label class="form-check-label" for="inlineRadio1">Male</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="sex" value="female"/>
+        <label class="form-check-label" for="inlineRadio2">Female</label>
+      </div>
+      <br>
+      <input class="btn btn-success btn-rounded" type="submit" value="Calculate">
+      <a href="/" class="btn btn-danger btn-rounded">Clear</a>
+      {% if bmi_out %}
+      <hr>
+          <p>Your BMI is {{bmi_out}}</p>
+          <p>You have to gain {{bmr_out}} calories per day</p>
+        <div class="form-outline">
+            <input type="number" name="meal" id="meal" class="form-control" required/>
+            <label class="form-label" for="typeText">Meals per day</label>
+        </div>
+        {% if meal %}
+      {% endif %}
+    </div>
 </form>
-{%if bmi%}
-<p>Your BMI is {{bmi}}</p>
-{%endif%}
 {% endblock %}

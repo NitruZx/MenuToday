@@ -5,9 +5,17 @@ views = Blueprint(__name__, "views")
 @views.route('/', methods=["POST", "GET"])
 def index():
     """home page"""
-    ans = ''
-    if request.method == "POST" and "fweight" in request.form and "fhight" in request.form:
+    if request.method == "GET":
+        tmp = ["", "", ""]
+        return render_template("index.html", tmp = tmp)
+    if request.method == "POST":
         weight = float(request.form.get('weight'))
-        hight = float(request.form.get('hight'))
-        ans = bmi(weight, hight)
-    return render_template("index.html", bmi=ans)
+        height = float(request.form.get('height'))
+        age = int(request.form.get('age'))
+        sex = request.form.get('sex')
+        tmp = [weight, height, age]
+        bmi_out = "%.2f"%bmi(weight, height)
+        bmr_out = bmr(weight, height, age, sex)
+        if bmi_out and bmr_out:
+            meal = int()
+    return render_template("index.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp)
