@@ -16,4 +16,7 @@ def index():
         tmp = [weight, height, age]
         bmi_out = "%.2f"%bmi(weight, height)
         bmr_out = bmr(weight, height, age, sex)
-    return render_template("index.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp)
+        dmeal = 0
+        if request.form.get('meal'):
+            dmeal = int(request.form.get('meal'))
+    return render_template("index.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp, dmeal = dmeal)
