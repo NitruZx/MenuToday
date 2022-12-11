@@ -16,6 +16,4 @@ def index():
         tmp = [weight, height, age]
         bmi_out = "%.2f"%bmi(weight, height)
         bmr_out = bmr(weight, height, age, sex)
-        if bmi_out and bmr_out:
-            meal = int()
     return render_template("index.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp)
