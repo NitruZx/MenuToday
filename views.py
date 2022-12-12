@@ -22,6 +22,7 @@ def index():
 
 @views.route('/random', methods=["POST", "GET"])
 def meal():
+    """random meal page"""
     if request.method == "GET":
         return render_template("random.html")
     if request.method == "POST":
