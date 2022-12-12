@@ -16,14 +16,25 @@ def index():
         age = int(request.form.get('age'))
         sex = request.form.get('sex')
         tmp = [weight, height, age, sex]
-        bmi_out = "%.2f"%bmi(weight, height)
-        bmr_out = bmr(weight, height, age, sex)
-    return render_template("random.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp)
+    return render_template("index.html", tmp = tmp) #bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp
 
-@views.route('/random', methods=["POST", "GET"])
+@views.route('/bmi')
+def calculate():
+    """bmi cal page"""
+    weight = float(request.args.get('weight'))
+    height = float(request.args.get('height'))
+    age = int(request.args.get('age'))
+    sex = request.args.get('sex')
+    bmi_out = "%.2f"%bmi(weight, height)
+    bmr_out = bmr(weight, height, age, sex)
+    body_out = check_u_bmi(bmi(weight, height))
+    return render_template("random.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp=["", "", ""], body_out = body_out)
+
+@views.route('/meal', methods=["POST", "GET"])
 def meal():
     """random meal page"""
     final = 0
+    menu = ""
     if request.method == "GET":
         tmp = ["", "", ""]
         return render_template("random.html")
@@ -40,8 +51,12 @@ def meal():
             cal_day = 0
         else:
             cal_day = int(request.form.get('cal'))
-        menu = [i for i in [want1, want2, want3] if not i is None]
-        final = outmenu(meal_day, menu, cal_day)
-        tmp = [meal_day, cal_day, menu]
-        print(final[0])
+        
+        try:
+            menu = [i for i in [want1, want2, want3] if not i is None]
+            final = outmenu(meal_day, menu, cal_day)
+            tmp = [meal_day, cal_day, menu]
+        except IndexError:
+            final = ["", 0]
+            return render_template("random.html", menu_out = final, tmp=["", "", ""])
     return render_template("random.html", menu_out = final, tmp=tmp)

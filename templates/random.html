@@ -3,11 +3,15 @@
 {% block content %}
 <div class="center-box">
     <div class="container-sm">
-        <p>Your BMI is {{bmi_out}}</p>
+        {% if bmi_out %}
+        <p>Your BMI is {{bmi_out}}
+        <p>Body type : {{body_out}}</p>
+        </p>
         <p>You have to gain {{bmr_out}} calories per day</p>
+        {% endif %}
         <hr>
         <div class="container-sm">
-            <form action="" method="POST">
+            <form action="/meal" method="POST">
                 <div class="form-outline">
                     <input type="number" name="meal" id="meal" class="form-control" value="{{tmp[0]}}" required/>
                     <label class="form-label" for="typeText">Meals per day</label>
@@ -19,7 +23,7 @@
                 </div>
             <br>
                 <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="select1" value="Rice" {% if 'Rice' in tmp[2] %} checked {% else %} {% endif %}>
+                <input class="form-check-input" type="checkbox" name="select1" value="Rice" {% if 'Rice' in tmp[2] %} checked {% else %} {% endif %} {% if menu == "" %} required {% endif %}>
                 <label class="form-check-label" for="inlineCheckbox1">Rice(ข้าว)</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -31,6 +35,7 @@
                 <label class="form-check-label" for="inlineCheckbox3">Yum(ยำ)</label>
                 </div>
             <br>
+            <br>
                 <input class="btn btn-success btn-rounded" type="submit" value="!RANDOM!">
             </form>
         </div>
@@ -39,8 +44,9 @@
         {% for menu in menu_out[0] %}
         <p>{{menu[0]}} {{menu[1]}} calories</p>
         {% endfor %}
+        <p>Total calories : {{menu_out[1]}}</p>
         {% endif %}
-        <a href="{{url_for('views.index')}}" class="btn btn-danger btn-rounded">Back</a>
+        <a href="{{url_for('views.index')}}" class="btn btn-danger btn-rounded">Back to Cal</a>
     </div>
 </div>
 {% endblock %}

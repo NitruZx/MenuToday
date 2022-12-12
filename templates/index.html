@@ -3,7 +3,7 @@
 {% block content %}
 <div class="center-box">
   <div class="container-sm">
-    <form action="/random" method="POST" id="cal">
+    <form action="{{url_for('views.calculate')}}" method="GET" id="cal">
           <p class="h2">Let's Calculories!</p>
           <br>
         <div class="input-box">
@@ -31,8 +31,8 @@
             <label class="form-check-label" for="inlineRadio2">Female</label>
           </div>
           <br>
+          <br>
           <input class="btn btn-success btn-rounded" type="submit" value="Calculate">
-          <a href="/random" class="btn btn-dark btn-rounded">test</a>
           <a href="/" class="btn btn-danger btn-rounded">Clear</a>
         </div>
       </form>
