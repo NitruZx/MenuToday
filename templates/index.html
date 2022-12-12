@@ -1,65 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="POST" id="cal">
-    <div class="container-sm">
-      <p class="h2">Let's Calculories!</p>
-      <br>
-      <div class="form-outline">
-        <input type="text" name="weight" id="weight" class="form-control"  value="{{tmp[0]}}" required/>
-        <label class="form-label" for="typeText">Weight</label>
-      </div>
-      <br>
-      <div class="form-outline">
-        <input type="text" name="height" id="height" class="form-control" value="{{tmp[1]}}" required/>
-        <label class="form-label" for="typeText">Height</label>
-      </div>
-      <br>
-      <div class="form-outline">
-        <input type="text" name="age" id="age" class="form-control" value="{{tmp[2]}}" required/>
-        <label class="form-label" for="typeText">Age</label>
-      </div>
-      <br>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="sex" value="male" required/>
-        <label class="form-check-label" for="inlineRadio1">Male</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="sex" value="female"/>
-        <label class="form-check-label" for="inlineRadio2">Female</label>
-      </div>
-      <br>
-      <input class="btn btn-success btn-rounded" type="submit" value="Calculate">
-      <a href="/" class="btn btn-danger btn-rounded">Clear</a>
-      {% if bmi_out %}
-      <hr>
-          <p>Your BMI is {{bmi_out}}</p>
-          <p>You have to gain {{bmr_out}} calories per day</p>
-        <form action="" method="POST">
-        <div class="form-outline">
-            <input type="number" name="meal" id="meal" class="form-control" required/>
-            <label class="form-label" for="typeText">Meals per day</label>
+<div class="center-box">
+  <div class="container-sm">
+    <form action="" method="POST" id="cal">
+          <p class="h2">Let's Calculories!</p>
+          <br>
+        <div class="input-box">
+          <div class="form-outline">
+            <input type="text" name="weight" id="weight" class="form-control"  value="{{tmp[0]}}" required/>
+            <label class="form-label" for="typeText">Weight</label>
+          </div>
+          <br>
+          <div class="form-outline">
+            <input type="text" name="height" id="height" class="form-control" value="{{tmp[1]}}" required/>
+            <label class="form-label" for="typeText">Height</label>
+          </div>
+          <br>
+          <div class="form-outline">
+            <input type="text" name="age" id="age" class="form-control" value="{{tmp[2]}}" required/>
+            <label class="form-label" for="typeText">Age</label>
+          </div>
+          <br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sex" value="male" {% if tmp[3] == 'male' %} checked {% else %} {% endif %} required/>
+            <label class="form-check-label" for="inlineRadio1">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sex" value="female" {% if tmp[3] == 'female' %} checked {% else %} {% endif %}/>
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+          </div>
+          <br>
+          <input class="btn btn-success btn-rounded" type="submit" value="Calculate">
+          <a href="/" class="btn btn-danger btn-rounded">Clear</a>
         </div>
-        <br>
-        <input class="btn btn-dark btn-rounded" type="submit" value="Next">
-        </form>
-        <br>
-        <br>
-        {% if dmeal %}
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Rice(ข้าว)</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-          <label class="form-check-label" for="inlineCheckbox2">Noodle(เส้น)</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-          <label class="form-check-label" for="inlineCheckbox3">Yum(ยำ)</label>
-        </div>
-        {% endif %}
+      </form>
+        {% if bmi_out %}
+        <hr>
+            <p>Your BMI is {{bmi_out}}</p>
+            <p>You have to gain {{bmr_out}} calories per day</p>
+            <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+              Launch demo modal
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">...</div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </div>
+</div>
       {% endif %}
-    </div>
-</form>
+{% block modal %}{% endblock %}
 {% endblock %}
+
