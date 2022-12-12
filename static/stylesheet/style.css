@@ -1,5 +1,5 @@
 .bg-index {
-    background-image: url("/static/images/pattern\ bg.webp");
+    background-image: url("/static/images/pic3.png");
     position: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,8 +10,8 @@
     left: 0;
     overflow: hidden;
     z-index: -1;
-    opacity: 0.5;
-    filter: blur(1.5px);
+    opacity: 0.7;
+    filter: blur(2px);
 }
 
 .barbox {
