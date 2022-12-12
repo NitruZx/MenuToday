@@ -11,6 +11,11 @@
     overflow: hidden;
     z-index: -1;
     opacity: 0.5;
+    filter: blur(1.5px);
+}
+
+.barbox {
+    box-shadow: 5px 5px 20px;
 }
 
 .h2 {
@@ -32,4 +37,5 @@
     text-align: center;
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
+    box-shadow: 5px 8px 17px;
 }

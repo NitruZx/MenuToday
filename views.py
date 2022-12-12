@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from MenuToday2 import *
+from MenuToday3 import bmi, bmr, check_u_bmi, calpermeal, find_menu
 views = Blueprint(__name__, "views")
 
 tmp = ["", "", "", ""]
@@ -18,14 +18,16 @@ def index():
         tmp = [weight, height, age, sex]
         bmi_out = "%.2f"%bmi(weight, height)
         bmr_out = bmr(weight, height, age, sex)
-        print(sex)
-    return render_template("index.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp)
+    return render_template("random.html", bmi_out = bmi_out, bmr_out = bmr_out, tmp = tmp)
 
-@views.route('/meal', methods=["POST", "GET"])
+@views.route('/random', methods=["POST", "GET"])
 def meal():
-    want1 = request.form.get('select1')
-    want2 = request.form.get('select2')
-    want3 = request.form.get('select3')
-    clean = [i for i in [want1, want2, want3] if not i is None]
-    print(clean)
-    return render_template("mealcal.html", tmp=tmp)
+    if request.method == "GET":
+        return render_template("random.html")
+    if request.method == "POST":
+        want1 = request.form.get('select1')
+        want2 = request.form.get('select2')
+        want3 = request.form.get('select3')
+        
+        clean = [i for i in [want1, want2, want3] if not i is None]
+    return render_template("random.html", tmp=tmp)

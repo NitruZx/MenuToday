@@ -32,6 +32,7 @@
           </div>
           <br>
           <input class="btn btn-success btn-rounded" type="submit" value="Calculate">
+          <a href="/random" class="btn btn-dark btn-rounded">test</a>
           <a href="/" class="btn btn-danger btn-rounded">Clear</a>
         </div>
       </form>
@@ -39,29 +40,9 @@
         <hr>
             <p>Your BMI is {{bmi_out}}</p>
             <p>You have to gain {{bmr_out}} calories per day</p>
-            <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-              Launch demo modal
-            </button>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">...</div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <a href="/random" class="btn btn-dark btn-rounded">Meal cal</a>
   </div>
 </div>
       {% endif %}
 {% block modal %}{% endblock %}
 {% endblock %}
-
