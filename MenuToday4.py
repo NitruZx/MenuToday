@@ -41,17 +41,17 @@ def find_menu(menu_c, num_cpm):
     kid_org = []
     if "Rice" in menu_c:
         for i in menu_rice:
-            if (num_cpm-100) <= i[1] <= (num_cpm+100):
+            if i[1] <= num_cpm:
                 kid_org.append(i)
         # return random.choice(newrice)
     if "Sen" in menu_c:
         for i in menu_noodle:
-            if (num_cpm-120) <= i[1] <= (num_cpm+100):
+            if i[1] <= num_cpm:
                 kid_org.append(i)
         # return random.choice(newsen)
     if "yum" in menu_c:
         for i in menu_yum:
-            if (num_cpm-120) <= i[1] <= (num_cpm+100):
+            if i[1] <= num_cpm:
                 kid_org.append(i)
         # return random.choice(newyum)
     return kid_org
