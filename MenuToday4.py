@@ -16,7 +16,7 @@ def bmr(weight, hight, age, sex):
 def check_u_bmi(bmi):
     """check your weight""" # checkว่าอยู่ในเกณไหน
     if bmi < 18.5:
-        return "Under"
+        return "Under weight"
     elif bmi >= 18.5 and bmi < 25:
         return "Normal"
     elif  bmi >= 25 and bmi <30:
@@ -91,5 +91,3 @@ def main():
     print("Type of menu u want to eat : ", end= "")
     menu_c = input()
     print(outmenu(num_meal, menu_c, cal_want))
-    
-main()
