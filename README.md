@@ -31,9 +31,15 @@ Link GitHub Repository : https://github.com/NitruZx/MenuToday
 65070082 น.ส.ณัฐรดา กิจสมบูรณ์สุข : หาข้อมูลที่ใช้ในโปรแกรม เช่น เมนูอาหาร Calories เขียนโค้ดภายในโปรแกรมโดยใช้ภาษา Python (Support), ทำรายงาน
 ## เอกสารอ้างอิง
 https://www.youtube.com/watch?v=USjZcfj8yxE&t=195s
+
 https://www.youtube.com/watch?v=RR_Ih6d71YA&t=1579s
+
 https://www.youtube.com/watch?v=U1JUicQzGMI&t=5349s
+
 https://www.youtube.com/watch?v=dam0GPOAvVI&t=3565s
+
 https://www.w3schools.com/python/
+
 https://hd.co.th/table-of-calories-in-food-types
+
 https://www.lovefitt.com/เครื่องคำนวณหาค่าดัชนีมวลกาย-bmi/
